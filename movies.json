@@ -1,27 +1,50 @@
-
 [
   {
     "title": "Fast & Furious 9",
     "poster": "https://i.imgur.com/2dU0KGi.jpg",
     "iframe": "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3Da65ff90b4c214a6e06866bd02c3bf096",
-    "genre": "Action"
+    "description": "Fast & Furious 9 follows Dom Toretto and his team as they face off against a dangerous new foe. The high-stakes action continues as the family fights for survival and justice."
   },
   {
     "title": "One Piece Film Red",
     "poster": "https://i.imgur.com/kXOSmGm.jpg",
-    "iframe": "https://drive.google.com/file/d/1FrQVPYmLuCw9JJqpyn5iFf8KPvE9tAmM/preview",
-    "genre": "Anime"
+    "iframe": "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3D1FrQVPYmLuCw9JJqpyn5iFf8KPvE9tAmM",
+    "description": "The Straw Hat Pirates find themselves in a battle against powerful new foes as they seek to protect an important item from the wrong hands."
   },
   {
     "title": "Jujutsu Kaisen 0",
     "poster": "https://i.imgur.com/ZcFzC4m.jpg",
-    "iframe": "https://drive.google.com/file/d/1d5uWbZlKSJ9oKzKr5b0WTUl3yEn7cNHh/preview",
-    "genre": "Anime"
+    "iframe": "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3D1d5uWbZlKSJ9oKzKr5b0WTUl3yEn7cNHh",
+    "description": "Yuta Okkotsu, a young man haunted by the curse of his late childhood friend, seeks to understand and master the powers of Jujutsu Sorcery."
   },
   {
-    "title": "Parasite",
-    "poster": "https://i.imgur.com/f5XnpkF.jpg",
-    "iframe": "https://somehost.com/parasite",
-    "genre": "Drama"
+    "title": "Spider-Man: No Way Home",
+    "poster": "https://i.imgur.com/BrlK4A7.jpg",
+    "iframe": "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3D5c00b548462441af987492ed6154f98d",
+    "description": "Spider-Man faces challenges when his secret identity is exposed, leading him to seek help from Doctor Strange. The consequences create a multiverse catastrophe."
+  },
+  {
+    "title": "The Matrix Resurrections",
+    "poster": "https://i.imgur.com/y2ru6Cr.jpg",
+    "iframe": "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3D1FEpfaY26Xzk71K99LBWvWb8eHmP3Rpy0",
+    "description": "Neo once again returns to the Matrix in a bid to escape from the simulated reality and find out what's real. With new enemies and allies, the fight continues."
+  },
+  {
+    "title": "Shang-Chi and the Legend of the Ten Rings",
+    "poster": "https://i.imgur.com/3fbp5Pq.jpg",
+    "iframe": "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3D98b3a22f0e17458cbd01a0f1209269f2",
+    "description": "Shang-Chi is drawn into the world of the Ten Rings organization, where he must confront his past and fight against enemies who have long controlled his destiny."
+  },
+  {
+    "title": "Dune",
+    "poster": "https://i.imgur.com/ITqO9Fj.jpg",
+    "iframe": "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3D77e8c5c524c64f1786220d0d8702c2b7",
+    "description": "Dune follows the story of Paul Atreides, a young nobleman who must navigate political intrigue, control the spice trade, and survive on the dangerous desert planet."
+  },
+  {
+    "title": "Eternals",
+    "poster": "https://i.imgur.com/m9gGVXs.jpg",
+    "iframe": "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3D4a28a1b7b8b64d5d97e1c800e73b8a13",
+    "description": "The Eternals, an immortal race of superheroes, emerge from the shadows to protect humanity from the ancient threat of the Deviants."
   }
 ]
