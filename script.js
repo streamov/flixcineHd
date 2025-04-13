@@ -1,15 +1,15 @@
-const movies = [
-  {
-    title: "Polis Evo 3",
-    poster: "assets/poster/polis-evo-3.jpg",
-    link: "https://drive.google.com/uc?export=preview&id=YOUR_GOOGLE_DRIVE_ID"
-  },
-  {
-    title: "BoBoiBoy Movie 2",
-    poster: "assets/poster/boboiboy-2.jpg",
-    link: "https://drive.google.com/uc?export=preview&id=YOUR_GOOGLE_DRIVE_ID"
-  }
-];
+const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSoA8jgZVHNOH-yB-VGP5wx3jHP8-aZYsHSJnKLIFlD8m_CgvRkEp4DUFtL6FENVkEgUg0F-bC6IxFr/pub?output=csv";
+
+async function fetchMovies() {
+  const res = await fetch(csvUrl);
+  const data = await res.text();
+  const rows = data.split("\n").slice(1);
+  const movies = rows.map(row => {
+    const [title, poster, link] = row.split(",");
+    return { title, poster, link };
+  });
+  return movies;
+}
 
 const movieList = document.getElementById("movie-list");
 const searchInput = document.getElementById("search");
@@ -28,10 +28,11 @@ function displayMovies(data) {
   });
 }
 
-searchInput.addEventListener("input", () => {
+searchInput.addEventListener("input", async () => {
   const keyword = searchInput.value.toLowerCase();
+  const movies = await fetchMovies();
   const filtered = movies.filter(m => m.title.toLowerCase().includes(keyword));
   displayMovies(filtered);
 });
 
-displayMovies(movies);
+fetchMovies().then(displayMovies);
