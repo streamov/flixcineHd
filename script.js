@@ -1,13 +1,8 @@
-const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSoA8jgZVHNOH-yB-VGP5wx3jHP8-aZYsHSJnKLIFlD8m_CgvRkEp4DUFtL6FENVkEgUg0F-bC6IxFr/pub?output=csv";
+const jsonUrl = "movies.json";
 
 async function fetchMovies() {
-  const res = await fetch(csvUrl);
-  const data = await res.text();
-  const rows = data.split("\n").slice(1);
-  const movies = rows.map(row => {
-    const [title, poster, link] = row.split(",");
-    return { title, poster, link };
-  });
+  const res = await fetch(jsonUrl);
+  const movies = await res.json();
   return movies;
 }
 
