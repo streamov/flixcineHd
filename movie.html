@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tonton Movie</title>
+  <style>
+    body {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    iframe {
+      width: 90%;
+      height: 500px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tonton Movie</h1>
+  <iframe id="videoPlayer" allowfullscreen></iframe>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const video = urlParams.get("video");
+    document.getElementById("videoPlayer").src = video;
+  </script>
+</body>
+</html>

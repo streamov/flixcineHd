@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #111;
+  color: white;
+}
+header {
+  background: #222;
+  padding: 1rem;
+  text-align: center;
+}
+#search {
+  padding: 10px;
+  width: 60%;
+  margin-top: 10px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #555;
+}
+#movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+.movie-card {
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+}
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+}
