@@ -1,15 +1,12 @@
-// Fetch data movie dari movies.json
 fetch('movies.json')
   .then(response => response.json())
   .then(data => {
-    const movieList = document.getElementById('movie-list'); // Ambil tempat untuk senarai movie
+    const movieList = document.getElementById('movie-list'); 
 
-    // Loop setiap movie dalam array
     data.forEach(movie => {
-      const card = document.createElement('div'); // Create div untuk setiap movie
-      card.className = 'movie-card'; // Set class
+      const card = document.createElement('div'); 
+      card.className = 'movie-card';
 
-      // Masukkan HTML untuk movie card (gambar, tajuk, iframe)
       card.innerHTML = `
         <img src="${movie.poster}" alt="${movie.title}">
         <h3>${movie.title}</h3>
@@ -18,7 +15,6 @@ fetch('movies.json')
         </div>
       `;
 
-      // Tambah movie card dalam movie-list
       movieList.appendChild(card);
     });
   });
