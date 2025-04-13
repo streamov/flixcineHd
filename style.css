@@ -44,7 +44,7 @@ header {
 .video-wrapper {
   margin-top: 10px;
   width: 100%;
-  aspect-ratio: 16 / 9; /* Responsif berdasarkan aspect ratio */
+  aspect-ratio: 16 / 9;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
