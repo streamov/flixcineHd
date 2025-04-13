@@ -44,3 +44,22 @@ movieData.forEach(movie => {
 
   movieListContainer.appendChild(movieCard);
 });
+
+fetch('movies.json')
+  .then(response => response.json())
+  .then(movies => {
+    const movieList = document.getElementById('movie-list');
+    movies.forEach(movie => {
+      const movieCard = document.createElement('div');
+      movieCard.classList.add('movie-card');
+      movieCard.innerHTML = `
+        <img src="${movie.poster}" alt="${movie.title}">
+        <div class="content">
+          <h3>${movie.title}</h3>
+          <a href="${movie.iframe}" target="_blank">Tonton Sekarang</a>
+        </div>
+      `;
+      movieList.appendChild(movieCard);
+    });
+  })
+  .catch(error => console.error('Error loading movie data:', error));
