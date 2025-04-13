@@ -1,53 +1,46 @@
+// Array of genres from A to Z
+const genres = [
+  "Action", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary",
+  "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Musical", "Mystery",
+  "Romance", "Sci-Fi", "Sport", "Thriller", "War", "Western"
+];
 
-fetch('movies.json')
-  .then(res => res.json())
-  .then(data => {
-    const trending = data.slice(0, 3);
-    const trendingList = document.getElementById('trending-list');
-    trending.forEach(movie => {
-      const card = document.createElement('div');
-      card.className = 'movie-card';
-      card.innerHTML = `
-        <img src="${movie.poster}" alt="${movie.title}">
-        <h3>${movie.title}</h3>
-        <button onclick="playMovie('${movie.iframe}')">Tonton</button>
-      `;
-      trendingList.appendChild(card);
-    });
+// Insert genre buttons dynamically
+const genreContainer = document.getElementById("genreList");
+genres.forEach(genre => {
+  const genreButton = document.createElement("div");
+  genreButton.className = "genre";
+  genreButton.innerText = genre;
+  genreButton.onclick = () => {
+    alert(`Filter by ${genre}`);
+  };
+  genreContainer.appendChild(genreButton);
+});
 
-    const container = document.getElementById('movie-list');
-    const filter = document.getElementById('filter');
-    const search = document.getElementById('search');
+// Dummy Movie Data
+const movieData = [
+  { title: "Movie 1", poster: "https://via.placeholder.com/200", iframe: "https://playeriframe.lol/iframe.php?url=..." },
+  { title: "Movie 2", poster: "https://via.placeholder.com/200", iframe: "https://playeriframe.lol/iframe.php?url=..." },
+  // Add more movie objects here
+];
 
-    function renderMovies(movies) {
-      container.innerHTML = '';
-      movies.forEach(movie => {
-        const card = document.createElement('div');
-        card.className = 'movie-card';
-        card.innerHTML = `
-          <img src="${movie.poster}" alt="${movie.title}">
-          <h3>${movie.title}</h3>
-          <button onclick="playMovie('${movie.iframe}')">Tonton</button>
-        `;
-        container.appendChild(card);
-      });
-    }
+// Insert movie cards dynamically
+const movieListContainer = document.getElementById("movieList");
+movieData.forEach(movie => {
+  const movieCard = document.createElement("div");
+  movieCard.className = "movie-card";
 
-    renderMovies(data);
+  const movieImage = document.createElement("img");
+  movieImage.src = movie.poster;
+  movieCard.appendChild(movieImage);
 
-    filter.addEventListener('change', () => {
-      const genre = filter.value;
-      const filtered = genre === 'all' ? data : data.filter(m => m.genre === genre);
-      renderMovies(filtered);
-    });
+  const movieTitle = document.createElement("h3");
+  movieTitle.innerText = movie.title;
+  movieCard.appendChild(movieTitle);
 
-    search.addEventListener('input', () => {
-      const keyword = search.value.toLowerCase();
-      const filtered = data.filter(m => m.title.toLowerCase().includes(keyword));
-      renderMovies(filtered);
-    });
-  });
+  movieCard.onclick = () => {
+    window.location.href = movie.iframe;  // Open movie iframe
+  };
 
-function playMovie(link) {
-  document.getElementById('player-iframe').src = link;
-}
+  movieListContainer.appendChild(movieCard);
+});
