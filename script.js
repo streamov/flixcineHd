@@ -1,35 +1,24 @@
-const jsonUrl = "movies.json"; // link ke file JSON local
+// Fetch data movie dari movies.json
+fetch('movies.json')
+  .then(response => response.json())
+  .then(data => {
+    const movieList = document.getElementById('movie-list'); // Ambil tempat untuk senarai movie
 
-async function fetchMovies() {
-  const res = await fetch(jsonUrl);
-  const movies = await res.json();
-  return movies;
-}
+    // Loop setiap movie dalam array
+    data.forEach(movie => {
+      const card = document.createElement('div'); // Create div untuk setiap movie
+      card.className = 'movie-card'; // Set class
 
-const movieList = document.getElementById("movie-list");
-const searchInput = document.getElementById("search");
+      // Masukkan HTML untuk movie card (gambar, tajuk, iframe)
+      card.innerHTML = `
+        <img src="${movie.poster}" alt="${movie.title}">
+        <h3>${movie.title}</h3>
+        <div class="video-wrapper">
+          ${movie.iframe} <!-- Masukkan iframe -->
+        </div>
+      `;
 
-function displayMovies(data) {
-  movieList.innerHTML = "";
-  data.forEach(movie => {
-    const card = document.createElement("div");
-    card.className = "movie-card";
-    card.innerHTML = `
-      <img src="${movie.poster}" alt="${movie.title}">
-      <h3>${movie.title}</h3>
-      <div class="video-wrapper">
-        <iframe src="${movie.iframe}" allowfullscreen></iframe>
-      </div>
-    `;
-    movieList.appendChild(card);
+      // Tambah movie card dalam movie-list
+      movieList.appendChild(card);
+    });
   });
-}
-
-searchInput.addEventListener("input", async () => {
-  const keyword = searchInput.value.toLowerCase();
-  const movies = await fetchMovies();
-  const filtered = movies.filter(m => m.title.toLowerCase().includes(keyword));
-  displayMovies(filtered);
-});
-
-fetchMovies().then(displayMovies);
