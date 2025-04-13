@@ -1,4 +1,4 @@
-const jsonUrl = "movies.json";
+const jsonUrl = "movies.json"; // link ke file JSON local
 
 async function fetchMovies() {
   const res = await fetch(jsonUrl);
@@ -17,7 +17,9 @@ function displayMovies(data) {
     card.innerHTML = `
       <img src="${movie.poster}" alt="${movie.title}">
       <h3>${movie.title}</h3>
-      <a href="movie.html?video=${encodeURIComponent(movie.link)}">Tonton</a>
+      <div class="video-wrapper">
+        <iframe src="${movie.iframe}" allowfullscreen></iframe>
+      </div>
     `;
     movieList.appendChild(card);
   });
