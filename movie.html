@@ -1,30 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Tonton Movie</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Movie Stream - flixcineHD</title>
   <style>
+    /* Basic Styling */
     body {
-      background: #000;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
       color: white;
-      text-align: center;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
     }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff0055;
+      margin: 0;
+    }
+
+    .movie-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .movie-title {
+      color: #ff0055;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .iframe-container {
+      width: 80%;
+      max-width: 1000px;
+      height: 600px;
+      margin-bottom: 20px;
+      background-color: #333;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
     iframe {
-      width: 90%;
-      height: 500px;
+      width: 100%;
+      height: 100%;
       border: none;
+    }
+
+    .movie-description {
+      background-color: #222;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 1000px;
+      margin-bottom: 50px;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #999;
+      padding: 10px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Tonton Movie</h1>
-  <iframe id="videoPlayer" allowfullscreen></iframe>
+
+  <!-- Header Section -->
+  <header>
+    <h1>flixcineHD - Movie Stream</h1>
+  </header>
+
+  <!-- Movie Container Section -->
+  <div class="movie-container">
+
+    <!-- Movie Title -->
+    <div class="movie-title" id="movieTitle">
+      Movie Title
+    </div>
+
+    <!-- iframe Video Player -->
+    <div class="iframe-container">
+      <iframe name="iframe" id="movieIframe" src="" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+    </div>
+
+    <!-- Movie Description -->
+    <div class="movie-description" id="movieDescription">
+      This is a brief description of the movie. It can be anything like the plot, genre, or cast of the movie. You can add more details here.
+    </div>
+    
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>Powered by Nova System | Streaming Service</p>
+  </footer>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const video = urlParams.get("video");
-    document.getElementById("videoPlayer").src = video;
+    // Movie Data (Replace these values dynamically if needed)
+    const movieData = {
+      title: "Fast & Furious 9",  // Movie title
+      iframeSrc: "https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3Da65ff90b4c214a6e06866bd02c3bf096",  // Movie iframe link
+      description: "Fast & Furious 9 follows Dom Toretto and his team as they face off against a dangerous new foe. The high-stakes action continues as the family fights for survival and justice."  // Movie description
+    };
+
+    // Injecting the movie data into the HTML
+    document.getElementById("movieTitle").innerText = movieData.title;
+    document.getElementById("movieIframe").src = movieData.iframeSrc;
+    document.getElementById("movieDescription").innerText = movieData.description;
   </script>
+
 </body>
 </html>
