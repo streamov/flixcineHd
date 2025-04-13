@@ -2,12 +2,12 @@
   {
     "title": "Horror Mate (2023)",
     "poster": "https://s4.lk21static.buzz/wp-content/uploads/2025/04/film-horror-mate-2023-lk21-d21.jpg",
-    "iframe": "<<iframe src="https://cloud.hownetwork.xyz/video.php?id=a65ff90b4c214a6e06866bd02c3bf096" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" height="100%" width="100%"></iframe><iframe src="https://cloud.hownetwork.xyz/video.php?id=a65ff90b4c214a6e06866bd02c3bf096" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" height="100%" width="100%"></iframe>>"
+    "iframe": "<iframe name="iframe" src="https://playeriframe.lol/iframe.php?url=https%3A%2F%2Fcloud.hownetwork.xyz%2Fvideo.php%3Fid%3Da65ff90b4c214a6e06866bd02c3bf096" scrolling="no" frameborder="0" width="700" height="600" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" id="player-iframe" style="z-index:0;"></iframe>"
   },
   {
     "title": "One Piece Film Red",
     "poster": "https://i.imgur.com/kXOSmGm.jpg",
-    "iframe": "<iframe src="https://cloud.hownetwork.xyz/video.php?id=a65ff90b4c214a6e06866bd02c3bf096" scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" height="100%" width="100%"></iframe>"
+    "iframe": "<>"
   },
   {
     "title": "Jujutsu Kaisen 0",
