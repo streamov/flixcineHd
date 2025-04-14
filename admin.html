@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - NovaMovie</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      margin: 0;
+      background-color: #0e0e0e;
+      color: #fff;
+    }
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #1f1f1f;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      gap: 40px;
+    }
+    h1, h2 {
+      margin-bottom: 20px;
+      color: #00ffe1;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 10px;
+    }
+    label {
+      font-weight: bold;
+      color: #aaa;
+    }
+    input, select, textarea, button {
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+    input, select, textarea {
+      background: #2a2a2a;
+      color: #fff;
+    }
+    button {
+      background-color: #00ffe1;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #00bba9;
+    }
+    .video-card {
+      background: #1f1f1f;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .video-card iframe {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .video-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    footer {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 1px solid #1f1f1f;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NovaMovie Admin Panel</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>🎬 Upload New Video</h2>
+      <form id="uploadForm" action="upload.php" method="POST">
+        <label for="title">Video Title</label>
+        <input type="text" id="title" name="title" placeholder="Video Title" required />
+
+        <label for="embedUrl">Embed URL</label>
+        <input type="text" id="embedUrl" name="embedUrl" placeholder="Embed URL (YouTube, Vimeo, etc.)" required />
+
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+          <option value="">Select Category</option>
+          <option value="Action">Action</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Romance">Romance</option>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" placeholder="Video Description" required></textarea>
+
+        <label for="rating">Rating (1-10)</label>
+        <input type="number" id="rating" name="rating" placeholder="Rating" min="1" max="10" required />
+
+        <label for="year">Year of Production</label>
+        <input type="number" id="year" name="year" placeholder="Year" min="1900" max="2099" required />
+
+        <label for="director">Director</label>
+        <input type="text" id="director" name="director" placeholder="Director Name" required />
+
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" placeholder="Country of Production" required />
+
+        <button type="submit" name="submit" id="submitBtn">Upload Video</button>
+        <div id="statusMessage"></div>
+      </form>
+    </section>
+
+    <section>
+      <h2>🎞 Uploaded Videos</h2>
+      <div id="videoList" class="video-grid">
+        <!-- Video cards auto generated -->
+      </div>
+    </section>
+
+    <section>
+      <h2>🔍 Filter by Category</h2>
+      <form id="filterForm">
+        <select id="filterCategory" name="category">
+          <option value="">All Categories</option>
+          <option value="Action">Action</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Romance">Romance</option>
+        </select>
+        <button type="submit">Filter</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NovaMovie. Powered by Ikhwan x Nova.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const videoList = document.getElementById('videoList');
+      const filterForm = document.getElementById('filterForm');
+      const filterCategory = document.getElementById('filterCategory');
+
+      function getEmbedUrl(url) {
+        if (url.includes("emturbovid.com")) {
+          return `https://playeriframe.lol/iframe.php?url=${encodeURIComponent(url)}`;
+        } else if (url.includes("dood")) {
+          const id = getIdFromUrl(url);
+          return `https://doodstream.com/e/${id}`;
+        } else if (url.includes("mixdrop")) {
+          const id = getIdFromUrl(url);
+          return `https://mixdrop.co/e/${id}`;
+        } else if (url.includes("streamtape")) {
+          const id = getIdFromUrl(url);
+          return `https://streamtape.com/e/${id}`;
+        } else {
+          return url;
+        }
+      }
+
+      function getIdFromUrl(url) {
+        const matches = url.match(/\/[ed]\/([a-zA-Z0-9]+)/);
+        return matches ? matches[1] : '';
+      }
+
+      function loadVideos() {
+        fetch('videos.json')
+          .then(response => response.json())
+          .then(videos => renderVideos(videos))
+          .catch(err => console.error('Failed to load videos:', err));
+      }
+
+      function renderVideos(videos) {
+        videoList.innerHTML = '';
+        videos.forEach(video => {
+          const videoCard = document.createElement('div');
+          videoCard.classList.add('video-card');
+          const embedSrc = getEmbedUrl(video.embedUrl);
+
+          videoCard.innerHTML = `
+            <iframe src="${embedSrc}" height="200" frameborder="0" allowfullscreen></iframe>
+            <h3>${video.title}</h3>
+            <p><strong>Category:</strong> ${video.category}</p>
+            <p><strong>Description:</strong> ${video.description}</p>
+            <p><strong>Rating:</strong> ${video.rating}</p>
+            <p><strong>Year:</strong> ${video.year}</p>
+            <p><strong>Director:</strong> ${video.director}</p>
+            <p><strong>Country:</strong> ${video.country}</p>
+          `;
+          videoList.appendChild(videoCard);
+        });
+      }
+
+      filterForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const selectedCategory = filterCategory.value;
+
+        fetch('videos.json')
+          .then(response => response.json())
+          .then(videos => {
+            const filteredVideos = selectedCategory ? videos.filter(video => video.category === selectedCategory) : videos;
+            renderVideos(filteredVideos);
+          })
+          .catch(err => console.error('Failed to load videos:', err));
+      });
+
+      loadVideos();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NovaMovie - Watch Movies Online</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/logo.png" />
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="assets/logo.png" alt="NovaMovie" />
+        <span>NovaMovie</span>
+      </div>
+      <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search Movies..." />
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Drama</a></li>
+        <li><a href="#">Comedy</a></li>
+        <li><a href="#">Anime</a></li>
+        <li><a href="#">Horror</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Movie Section -->
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <ul>
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Comedy</a></li>
+        <li><a href="#">Drama</a></li>
+        <li><a href="#">Anime</a></li>
+        <li><a href="#">Horror</a></li>
+      </ul>
+      <h3>Popular Movies</h3>
+      <ul class="sidebar-icons">
+        <li><a href="#"><img src="assets/action-icon.png" alt="Action" /> Action</a></li>
+        <li><a href="#"><img src="assets/comedy-icon.png" alt="Comedy" /> Comedy</a></li>
+        <li><a href="#"><img src="assets/drama-icon.png" alt="Drama" /> Drama</a></li>
+        <li><a href="#"><img src="assets/anime-icon.png" alt="Anime" /> Anime</a></li>
+        <li><a href="#"><img src="assets/horror-icon.png" alt="Horror" /> Horror</a></li>
+      </ul>
+    </aside>
+
+    <!-- Movie Grid -->
+    <main>
+      <h2>Featured Movies</h2>
+      <div id="movie-grid" class="movie-grid">
+        <!-- Movie cards will be dynamically loaded here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 NovaMovie. All Rights Reserved. | Powered by NovaAI</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
