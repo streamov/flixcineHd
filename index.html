@@ -3,25 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NOVA STREAM</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>NOVA STREAM - Upload Center</title>
+  <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1 class="glitch" data-text="NOVA STREAM">NOVA STREAM</h1>
-      <p class="tagline">Tonton Dunia Dalam Bayang</p>
-      <div class="controls">
-        <input type="text" id="searchInput" placeholder="Cari movie..." />
-        <button id="darkModeToggle">🌙</button>
-      </div>
-    </header>
+    <h1>NOVA STREAM - Upload Center</h1>
+    
+    <form id="uploadForm">
+      <label for="category">Pilih Kategori:</label>
+      <select id="category" name="category">
+        <option value="image">Gambar</option>
+        <option value="trailer">Trailer</option>
+        <option value="filter">Filter</option>
+      </select>
 
-    <main>
-      <div id="movieList" class="movie-list"></div>
-    </main>
+      <input type="file" id="fileInput" name="file" accept="image/*,video/*,.json"/>
+      <button type="submit">Upload</button>
+    </form>
+
+    <div id="output"></div>
+
+    <!-- Filter Selection -->
+    <div id="filterOptions">
+      <label for="imageFilter">Pilih Filter:</label>
+      <select id="imageFilter" disabled>
+        <option value="none">None</option>
+        <option value="grayscale">Grayscale</option>
+        <option value="sepia">Sepia</option>
+        <option value="invert">Invert</option>
+        <option value="blur">Blur</option>
+      </select>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="scripts/script.js"></script>
 </body>
 </html>
