@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Nova LK21</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #fff;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      background: #1c1c1c;
+      border: 1px solid #333;
+      color: white;
+    }
+
+    button {
+      background: #3498db;
+      border: none;
+      cursor: pointer;
+    }
+
+    .movie-card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .movie-card img {
+      width: 100px;
+      float: left;
+      margin-right: 15px;
+    }
+
+    .movie-card button {
+      background: #e74c3c;
+      margin-top: 10px;
+    }
+
+    h1, h2 {
+      color: #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin - Tambah Movie Baru</h1>
+
+    <!-- Form Tambah Movie -->
+    <form id="uploadForm">
+      <input type="text" placeholder="Title" id="title" required>
+      <input type="text" placeholder="Genre (pisah dengan koma)" id="genre" required>
+      <input type="text" placeholder="Year" id="year" required>
+      <input type="text" placeholder="Country" id="country" required>
+      <input type="text" placeholder="Poster path (e.g. poster/abc.jpg)" id="poster" required>
+      <input type="text" placeholder="Video Link" id="link" required>
+      <textarea placeholder="Description..." id="description" required></textarea>
+      <button type="submit">Simpan Movie</button>
+    </form>
+
+    <hr>
+
+    <!-- Dashboard Movie -->
+    <h2>Senarai Movie Disimpan</h2>
+    <div id="dashboard"></div>
+  </div>
+
+  <script>
+    // Simpan ke localStorage bila submit
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const newMovie = {
+        title: document.getElementById('title').value,
+        genre: document.getElementById('genre').value.split(',').map(g => g.trim()),
+        year: document.getElementById('year').value,
+        country: document.getElementById('country').value,
+        poster: document.getElementById('poster').value,
+        link: document.getElementById('link').value,
+        description: document.getElementById('description').value
+      };
+
+      // Ambil list lama
+      const stored = JSON.parse(localStorage.getItem('moviesData')) || [];
+
+      // Tambah yang baru
+      stored.push(newMovie);
+      localStorage.setItem('moviesData', JSON.stringify(stored));
+
+      // Clear form & update dashboard
+      this.reset();
+      renderDashboard();
+    });
+
+    // Render senarai movie
+    function renderDashboard() {
+      const dashboard = document.getElementById('dashboard');
+      const movies = JSON.parse(localStorage.getItem('moviesData')) || [];
+      dashboard.innerHTML = '';
+
+      if (movies.length === 0) {
+        dashboard.innerHTML = '<p>Tiada movie disimpan.</p>';
+        return;
+      }
+
+      movies.forEach(movie => {
+        const div = document.createElement('div');
+        div.className = 'movie-card';
+        div.innerHTML = `
+          <img src="${movie.poster}" alt="${movie.title}">
+          <div style="overflow:hidden">
+            <h3>${movie.title}</h3>
+            <p><strong>Genre:</strong> ${movie.genre.join(', ')}</p>
+            <p><strong>Tahun:</strong> ${movie.year}</p>
+            <p><strong>Negara:</strong> ${movie.country}</p>
+            <p><strong>Description:</strong> ${movie.description}</p>
+            <button onclick="deleteMovie('${movie.title}')">Delete</button>
+          </div>
+        `;
+        dashboard.appendChild(div);
+      });
+    }
+
+    // Fungsi delete movie ikut title
+    function deleteMovie(title) {
+      if (confirm(`Buang movie "${title}"?`)) {
+        let movies = JSON.parse(localStorage.getItem('moviesData')) || [];
+        movies = movies.filter(m => m.title !== title);
+        localStorage.setItem('moviesData', JSON.stringify(movies));
+        renderDashboard();
+      }
+    }
+
+    // Auto render bila page buka
+    renderDashboard();
+  </script>
+</body>
+</html>
