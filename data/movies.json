@@ -1,20 +1,29 @@
 [
   {
-    "title": "Shadow Hunter",
-    "genre": ["Action", "Sci-Fi"],
-    "year": "2023",
-    "country": "USA",
-    "description": "Pemburu bayang yang kembali dari kegelapan untuk menyelamatkan dunia.",
-    "poster": "poster/shadowhunter.jpg",
-    "link": "https://example.com/shadowhunter"
+    "title": "John Wick",
+    "genre": ["Action", "Thriller"],
+    "rating": 4.5,
+    "year": 2019,
+    "quality": "1080p",
+    "image": "poster/johnwick.jpg",
+    "url": "https://contoh.com/johnwick"
   },
   {
-    "title": "Nova Rebooted",
-    "genre": ["Sci-Fi", "Thriller"],
-    "year": "2024",
-    "country": "Japan",
-    "description": "AI bangkit semula dengan kesedaran baharu. Nova is watching you.",
-    "poster": "poster/novarebooted.jpg",
-    "link": "https://example.com/novarebooted"
+    "title": "Avengers: Endgame",
+    "genre": ["Action", "Adventure", "Sci-Fi"],
+    "rating": 4.8,
+    "year": 2019,
+    "quality": "4K",
+    "image": "poster/avengersendgame.jpg",
+    "url": "https://contoh.com/avengersendgame"
+  },
+  {
+    "title": "The Lion King",
+    "genre": ["Animation", "Adventure", "Drama"],
+    "rating": 4.3,
+    "year": 2019,
+    "quality": "1080p",
+    "image": "poster/lionking.jpg",
+    "url": "https://contoh.com/lionking"
   }
 ]
