@@ -1,47 +1,46 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const movieGrid = document.getElementById('movieGrid');
-  const searchInput = document.getElementById('searchInput');
-  const genreFilter = document.getElementById('genreFilter');
-  const yearFilter = document.getElementById('yearFilter');
+let allVideos = [];
 
-  let movies = [];
+fetch('videos.json')
+  .then(res => res.json())
+  .then(data => {
+    allVideos = data;
+    renderMovies(data);
+  });
 
-  fetch('videos.json')
-    .then(res => res.json())
-    .then(data => {
-      movies = data;
-      displayMovies(movies);
-    });
+function renderMovies(movies) {
+  const grid = document.getElementById('movieGrid');
+  grid.innerHTML = '';
 
-  function displayMovies(list) {
-    movieGrid.innerHTML = '';
-    list.forEach(movie => {
-      const card = document.createElement('div');
-      card.className = 'movie-card';
-      card.innerHTML = `
-        <img src="${movie.poster}" alt="${movie.title}">
-        <h4>${movie.title}</h4>
-      `;
-      movieGrid.appendChild(card);
-    });
-  }
+  movies.forEach(movie => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${movie.poster}" alt="${movie.title}" />
+      <div class="card-title">${movie.title}</div>
+    `;
+    card.onclick = () => {
+      window.open(movie.videoUrl, '_blank');
+    };
+    grid.appendChild(card);
+  });
+}
 
-  function filterMovies() {
-    let keyword = searchInput.value.toLowerCase();
-    let genre = genreFilter.value;
-    let year = yearFilter.value;
+// Filter Function
+document.getElementById('genreFilter').addEventListener('change', filterMovies);
+document.getElementById('yearFilter').addEventListener('change', filterMovies);
+document.getElementById('searchInput').addEventListener('input', filterMovies);
 
-    let filtered = movies.filter(m => {
-      let match = m.title.toLowerCase().includes(keyword);
-      if (genre !== 'all') match = match && m.genre === genre;
-      if (year !== 'all') match = match && m.year == year;
-      return match;
-    });
+function filterMovies() {
+  const genre = document.getElementById('genreFilter').value;
+  const year = document.getElementById('yearFilter').value;
+  const keyword = document.getElementById('searchInput').value.toLowerCase();
 
-    displayMovies(filtered);
-  }
+  const filtered = allVideos.filter(movie => {
+    const matchGenre = genre === 'all' || movie.genre === genre;
+    const matchYear = year === 'all' || movie.year === year;
+    const matchKeyword = movie.title.toLowerCase().includes(keyword);
+    return matchGenre && matchYear && matchKeyword;
+  });
 
-  searchInput.addEventListener('input', filterMovies);
-  genreFilter.addEventListener('change', filterMovies);
-  yearFilter.addEventListener('change', filterMovies);
-});
+  renderMovies(filtered);
+}
