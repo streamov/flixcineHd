@@ -1,0 +1,21 @@
+[
+    {
+      "id": "avengers-endgame",
+      "title": "Avengers: Endgame",
+      "genre": ["Action", "Sci-Fi"],
+      "tahun": 2019,
+      "negara": "USA",
+      "poster": "assets/posters/avengers.jpg",
+      "video": "https://your-video-link.com/avengers.mp4"
+    },
+    {
+      "id": "parasite",
+      "title": "Parasite",
+      "genre": ["Thriller", "Drama"],
+      "tahun": 2019,
+      "negara": "Korea",
+      "poster": "assets/posters/parasite.jpg",
+      "video": "https://your-video-link.com/parasite.mp4"
+    }
+  ]
+  
