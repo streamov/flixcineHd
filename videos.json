@@ -1,20 +1,16 @@
 [
   {
-    "title": "Avengers: Endgame",
-    "poster": "assets/posters/endgame.jpg",
+    "title": "John Wick 4",
+    "poster": "https://image.tmdb.org/t/p/w500/your-image-link.jpg",
     "genre": "action",
-    "year": 2019
+    "year": "2023",
+    "videoUrl": "https://www.youtube.com/embed/xyz"
   },
   {
-    "title": "Parasite",
-    "poster": "assets/posters/parasite.jpg",
-    "genre": "drama",
-    "year": 2020
-  },
-  {
-    "title": "Your Name",
-    "poster": "assets/posters/yourname.jpg",
+    "title": "Crazy Rich Asians",
+    "poster": "https://image.tmdb.org/t/p/w500/your-image-link.jpg",
     "genre": "romance",
-    "year": 2016
+    "year": "2018",
+    "videoUrl": "https://www.youtube.com/embed/abc"
   }
 ]
