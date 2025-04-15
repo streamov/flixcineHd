@@ -1,49 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NovaMovie HD</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Header Top -->
   <header class="main-header">
-    <div class="container">
+    <div class="container header-flex">
       <h1 class="logo">NovaMovieHD</h1>
       <nav class="main-nav">
         <a href="#">Home</a>
         <a href="#">Movies</a>
-        <a href="#">Series</a>
+        <a href="#">TV Series</a>
         <a href="#">Genre</a>
         <a href="#">Top IMDb</a>
       </nav>
     </div>
   </header>
 
-  <section class="search-filter">
-    <input type="text" id="searchInput" placeholder="Search movies...">
-    <select id="genreFilter">
-      <option value="all">All Genre</option>
-      <option value="action">Action</option>
-      <option value="comedy">Comedy</option>
-      <option value="romance">Romance</option>
-    </select>
-    <select id="yearFilter">
-      <option value="all">All Years</option>
-      <option value="2025">2025</option>
-      <option value="2024">2024</option>
-      <option value="2023">2023</option>
-    </select>
+  <!-- Sub Menu -->
+  <div class="sub-menu">
+    <div class="container">
+      <a href="#">Action</a>
+      <a href="#">Comedy</a>
+      <a href="#">Drama</a>
+      <a href="#">Horror</a>
+      <a href="#">Anime</a>
+      <a href="#">Thriller</a>
+      <a href="#">Romance</a>
+    </div>
+  </div>
+
+  <!-- Filter & Search -->
+  <section class="filter-search">
+    <div class="container">
+      <input type="text" id="searchInput" placeholder="Search movies..." />
+      <select id="genreFilter">
+        <option value="all">All Genres</option>
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="romance">Romance</option>
+      </select>
+      <select id="yearFilter">
+        <option value="all">All Years</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+      </select>
+    </div>
   </section>
 
-  <main class="movie-grid" id="movieGrid">
-    <!-- Movie cards auto load dari videos.json -->
+  <!-- Movie Grid -->
+  <main class="movie-grid container" id="movieGrid">
+    <!-- Movie cards will load here -->
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 NovaMovie. Powered by Nova & Aidiel Ikhwan</p>
+    <div class="container">
+      <p>&copy; 2025 NovaMovie. Powered by Nova & Aidiel Ikhwan</p>
+    </div>
   </footer>
 
   <script src="main.js"></script>
+</body>
+</html>
+
 </body>
 </html>
