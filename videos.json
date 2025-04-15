@@ -1,21 +1,20 @@
 [
-    {
-      "id": "avengers-endgame",
-      "title": "Avengers: Endgame",
-      "genre": ["Action", "Sci-Fi"],
-      "tahun": 2019,
-      "negara": "USA",
-      "poster": "assets/posters/avengers.jpg",
-      "video": "https://your-video-link.com/avengers.mp4"
-    },
-    {
-      "id": "parasite",
-      "title": "Parasite",
-      "genre": ["Thriller", "Drama"],
-      "tahun": 2019,
-      "negara": "Korea",
-      "poster": "assets/posters/parasite.jpg",
-      "video": "https://your-video-link.com/parasite.mp4"
-    }
-  ]
-  
+  {
+    "title": "Avengers: Endgame",
+    "poster": "assets/posters/endgame.jpg",
+    "genre": "action",
+    "year": 2019
+  },
+  {
+    "title": "Parasite",
+    "poster": "assets/posters/parasite.jpg",
+    "genre": "drama",
+    "year": 2020
+  },
+  {
+    "title": "Your Name",
+    "poster": "assets/posters/yourname.jpg",
+    "genre": "romance",
+    "year": 2016
+  }
+]
