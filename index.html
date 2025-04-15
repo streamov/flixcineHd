@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NovaMovie - LK21 Clone</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaMovie HD</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>NOVAMOVIE</h1>
-    <div id="filters">
-      <select id="genreFilter">
-        <option value="">All Genres</option>
-      </select>
-      <select id="yearFilter">
-        <option value="">All Years</option>
-      </select>
-      <select id="countryFilter">
-        <option value="">All Countries</option>
-      </select>
+  <header class="main-header">
+    <div class="container">
+      <h1 class="logo">NovaMovieHD</h1>
+      <nav class="main-nav">
+        <a href="#">Home</a>
+        <a href="#">Movies</a>
+        <a href="#">Series</a>
+        <a href="#">Genre</a>
+        <a href="#">Top IMDb</a>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <div id="movieList" class="movie-grid"></div>
+  <section class="search-filter">
+    <input type="text" id="searchInput" placeholder="Search movies...">
+    <select id="genreFilter">
+      <option value="all">All Genre</option>
+      <option value="action">Action</option>
+      <option value="comedy">Comedy</option>
+      <option value="romance">Romance</option>
+    </select>
+    <select id="yearFilter">
+      <option value="all">All Years</option>
+      <option value="2025">2025</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+    </select>
+  </section>
+
+  <main class="movie-grid" id="movieGrid">
+    <!-- Movie cards auto load dari videos.json -->
   </main>
 
-  <script src="js/main.js"></script>
+  <footer>
+    <p>&copy; 2025 NovaMovie. Powered by Nova & Aidiel Ikhwan</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
