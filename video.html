@@ -1,1 +1,40 @@
+<!-- video.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaMovie - Video</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="NovaMovie Logo" class="logo" />
+    <h1>NovaMovie - Video</h1>
+  </header>
 
+  <section class="video-container">
+    <div class="video-player">
+      <iframe id="video-player" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <button id="backButton">Kembali ke Halaman Utama</button>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const videoUrl = urlParams.get("url");
+      const videoPlayer = document.getElementById("video-player");
+
+      if (videoUrl) {
+        videoPlayer.src = videoUrl;
+      }
+
+      const backButton = document.getElementById("backButton");
+      backButton.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    });
+  </script>
+</body>
+</html>
